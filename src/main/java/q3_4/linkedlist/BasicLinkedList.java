@@ -1,7 +1,7 @@
 package q3_4.linkedlist;
 
 public class BasicLinkedList {
-    Node head;
+    private Node head;
 
     public void appendToTail(int number) {
         Node node = new Node();
