@@ -10,12 +10,13 @@ public class StringChecker {
 
     public static boolean isUnique(String string) {
         Map<Character, Boolean> map = new HashMap<>();
-
         for (char ch: string.toCharArray()) {
-            if (map.containsKey(ch)) {
-                return false;
+            if (!Character.isWhitespace(ch)) {
+                if (map.containsKey(ch)) {
+                    return false;
+                }
+                map.put(ch, true);
             }
-            map.put(ch, true);
         }
         return true;
     }

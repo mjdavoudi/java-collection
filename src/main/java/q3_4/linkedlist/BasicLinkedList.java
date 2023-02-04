@@ -6,7 +6,7 @@ public class BasicLinkedList {
     public void appendToTail(int number) {
         Node node = new Node();
         node.setData(number);
-        addNodes(node);
+        addNewNode(node);
     }
 
     public void remove(int number) {
@@ -40,15 +40,29 @@ public class BasicLinkedList {
         return null;
     }
 
-    private void addNodes(Node node) {
+    private void addNewNode(Node node) {
         if (head == null) {
             head = node;
-        }else {
-            Node last = head;
-            while (last.getNext() !=null) {
-                last = last.getNext();
-            }
-            last.setNext(node);
+            return;
         }
+
+        Node last = head;
+        while (last.getNext() !=null) {
+            last = last.getNext();
+        }
+        last.setNext(node);
+    }
+
+    public static Node deleteNode(Node node, int data) {
+        Node currentNode = node;
+        while (currentNode != null) {
+            if (currentNode.getData() == data) {
+                currentNode = null;
+                break;
+            }
+            currentNode = currentNode.getNext();
+        }
+
+        return node;
     }
 }
